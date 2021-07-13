@@ -86,7 +86,7 @@ export class List extends Component {
                         <label>Number of Passengers:</label><p>{ship.passengers}</p>
                         <label htmlFor="ship">Hyperdrive Rating:</label><p>{ship.hyperdrive_rating}</p>
                     </div>
-                    <button className="specs-button" onClick={this.expandSpecs}>Expand</button>
+                    {/* <button className="specs-button" onClick={this.expandSpecs}>Expand</button> */}
                 </div>
                 )}
                 <div className="button-container">

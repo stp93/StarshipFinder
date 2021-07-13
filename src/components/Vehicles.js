@@ -78,6 +78,7 @@ export class List extends Component {
                 <div key={i} className="card" >
                     <div className="details">
                         <p className="model">{ship.model}</p>
+                        <label>Coloquial Name:</label><p> {ship.name}</p>
                         <label>Manufacturer:</label><p> {ship.manufacturer}</p>
                     </div>
                     <div className="specs">

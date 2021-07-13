@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Typed from 'typed.js';
 import './home.css';
+
 export class Home extends Component {
     componentDidMount(){
         const options = {
@@ -22,14 +23,19 @@ export class Home extends Component {
     componentWillUnmount(){
         this.typed.destroy();
     }
+    
+
     render() {
         return (
             <div className="home"> 
+
             <div className="text-container">
+                {/* <Search/> */}
                 <div className="text">
-                <span style={{whiteSpace: 'pre'}} ref={(el)=>{this.el = el}}/>
+                    <span style={{whiteSpace: 'pre'}} ref={(el)=>{this.el = el}}/>
                 </div>
-                </div>  
+            </div>  
+            
             </div>
         )
     }

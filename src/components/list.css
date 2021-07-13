@@ -46,6 +46,7 @@ p {
 .button-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 button {
   height: 4rem;
@@ -56,6 +57,7 @@ button {
   border-radius: 5px;
   font-size: 1.25rem;
   font-family: AUR;
+  cursor: pointer;
 }
 button:first-of-type {
   margin-right: 1rem;
@@ -74,20 +76,21 @@ button:last-of-type {
     font-family: Roboto;
     display: flex;
     flex-direction: column;
-
     border-radius: 3px;
   }
   .button-container {
     display: flex;
     justify-content: space-around;
-    margin: 0 1rem;
+    margin: 0 1rem 1rem 1rem;
   }
   .specs {
     display: none;
   }
-  .specs-button {
+  .model {
+    font-size: 1.75rem;
+  }
+  /* .specs-button {
     display: flex;
-
     align-items: center;
     justify-content: center;
     height: 2.5rem;
@@ -99,5 +102,5 @@ button:last-of-type {
     font-size: 0.75rem;
     font-family: AUR;
     margin-bottom: 1rem;
-  }
+  } */
 }

@@ -35,6 +35,6 @@ a {
 }
 @media screen and (max-width: 800px) {
   a {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }
