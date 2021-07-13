@@ -1,71 +1,71 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import './head.css';
 import './list.css';
 
-let url = `https://swapi.dev/api/starships/`
+let url = `https://swapi.dev/api/vehicles/`
 let back = ''
 let next = ''
 export class List extends Component {
     constructor(props){
         super(props)
     this.state={
-        ships: [],
-        isLoaded: false,
-        back: '',
-        next: ''
-    } 
-}
+        vehicles: [],
+        isLoaded: false
+    }}
     componentDidMount(){
         axios.get(url)
         .then(res => {
             console.log(res)
-            const ships = res.data.results
-            const url = res.data.next
+            const vehicles = res.data.results
+            
+            next = res.data.next
+            back = res.data.previous
             console.log(url)
-            console.log(ships)
-            this.setState({isLoaded: true,
-                ships
-                })
-             next = res.data.next
-             
+            console.log(vehicles)
+            
+            this.setState({isLoaded:true,vehicles})
         }) 
+        
     }
-    getShips = () => {
+    getVehicles = () => {
         if(next === null){
             return null
         }else{axios.get(next)
             .then(res => {
                 console.log(res)
-                const ships = res.data.results
-                console.log(url)
-                console.log(ships)
-                this.setState({isLoaded: true,
-                    ships,})
+                const vehicles = res.data.results
+                
+                console.log(next)
+                console.log(vehicles)
+                this.setState({vehicles})
                 next = res.data.next
                 back = res.data.previous
             })
         }
     }
     getBack = () => {
+        
         if(back === ''){
             return null
         }else{axios.get(back)
             .then(res => {
                 console.log(res)
-                const ships = res.data.results
+                const vehicles = res.data.results
+                //const url = res.data.next
+                
                 console.log(url)
-                console.log(ships)
+                console.log(vehicles)
                 this.setState({isLoaded: true,
-                    ships})
+                    vehicles})
                 back = res.data.previous
                 next = res.data.next
             })
         }
     }
-    
     componentDidUpdate(){
         window.scrollTo(0,0)
-    };
+    }
     
     render() {
         const {isLoaded} = this.state
@@ -74,7 +74,7 @@ export class List extends Component {
         }else{
         return (
             <div>
-            {this.state.ships.map((ship, i) =>   
+            {this.state.vehicles.map((ship, i) =>   
                 <div key={i} className="card" >
                     <div className="details">
                         <p className="model">{ship.model}</p>
@@ -84,19 +84,19 @@ export class List extends Component {
                         <label>Max Atmosphering Speed:</label><p>{ship.max_atmosphering_speed}</p>
                         <label>Number of Crew:</label><p>{ship.crew}</p>
                         <label>Number of Passengers:</label><p>{ship.passengers}</p>
-                        <label htmlFor="ship">Hyperdrive Rating:</label><p>{ship.hyperdrive_rating}</p>
+                        <label className="class">Class:</label><p className="class">{ship.vehicle_class}</p>
                     </div>
-                    <button className="specs-button" onClick={this.expandSpecs}>Expand</button>
+                    <button className="specs-button">Expand</button>
                 </div>
                 )}
                 <div className="button-container">
                 <button onClick={this.getBack}>Back</button>
-                <button onClick={this.getShips}>Next</button>
+                <button onClick={this.getVehicles}>Next</button>
                 </div>
             </div> 
         )
-    }
-}}
+    }}
+}
 
 export default List
 
