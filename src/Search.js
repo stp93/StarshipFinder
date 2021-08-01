@@ -22,7 +22,7 @@ const [searchResults,setSearchResults] = useState([])
     }
     
 useEffect(() => {
-    const result = results.filter(resp =>
+    const result = ships.filter(resp =>
         resp.toLowerCase().inclues(searchTerm.toLowerCase))
     setSearchResults(result)
 }, [searchTerm])

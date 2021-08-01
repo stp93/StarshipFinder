@@ -38,10 +38,12 @@ p {
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
-
   align-items: flex-end;
   width: 50%;
   flex-wrap: wrap;
+}
+.specs p {
+  font-family: "AUR";
 }
 .button-container {
   display: flex;

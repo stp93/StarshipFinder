@@ -70,7 +70,7 @@ export class List extends Component {
     render() {
         const {isLoaded} = this.state
         if(!isLoaded){
-            return(<div style={{textAlign: 'center', fontSize: '2rem', fontFamily: 'AUR'}}>Loading...</div>)
+            return(<div style={{ textAlign: 'center', fontSize: '2rem', fontFamily: 'AUR'}}>Loading...</div>)
         }else{
         return (
             <div>
