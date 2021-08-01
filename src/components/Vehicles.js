@@ -1,8 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import axios from 'axios';
 import React, { Component } from 'react';
 import './head.css';
 import './list.css';
-
+AOS.init()
 let url = `https://swapi.dev/api/vehicles/`
 let back = ''
 let next = ''
@@ -75,7 +77,14 @@ export class List extends Component {
         return (
             <div>
             {this.state.vehicles.map((ship, i) =>   
-                <div key={i} className="card" >
+                <div key={i} className="card"
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="true" >
                     <div className="details">
                         <p className="model">{ship.model}</p>
                         <label>Coloquial Name:</label><p> {ship.name}</p>
